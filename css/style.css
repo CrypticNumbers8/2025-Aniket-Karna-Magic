@@ -1,0 +1,838 @@
+/********** Template CSS **********/
+:root {
+  --primary: black;
+  --light: #f0fbfc;
+  --dark: #181d38;
+}
+
+.fw-medium {
+  font-weight: 600 !important;
+}
+
+.fw-semi-bold {
+  font-weight: 700 !important;
+}
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+}
+
+/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+/*** Button ***/
+.btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+  color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #060606 !important; /* darker shade on hover */
+  border-color: black !important;
+}
+
+.btn-square {
+  width: 38px;
+  height: 38px;
+}
+
+.btn-sm-square {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-lg-square {
+  width: 48px;
+  height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  border-radius: 0px;
+}
+
+/*** Navbar ***/
+.navbar .dropdown-toggle::after {
+  border: none;
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  margin-right: 30px;
+  padding: 25px 0;
+  color: #ffffff;
+  font-size: 15px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+/* FAQ Accordion Custom Styles */
+.accordion-button {
+  font-weight: bold; /* Questions in bold */
+  color: #000; /* Default question text color */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #060606; /* Highlighted question background when open */
+  color: #fff !important; /* Temporarily make text white when open */
+  border: 2px solid #060606;
+}
+
+.accordion-body {
+  font-weight: normal; /* Answers in plain text */
+  color: #000; /* Answer text color */
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes the image fill the container while keeping aspect ratio */
+}
+.owl-carousel-item {
+  height: 900px; /* Set this to match the height of your other carousel items */
+  position: relative;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+  height: 75px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.navbar-light.sticky-top {
+  top: -100px;
+  transition: 0.5s;
+}
+
+.video-hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.video-container {
+  width: 100%;
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .owl-nav {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Make sure it stays above the images */
+  background: rgba(24, 29, 56, 0.3);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 10.5rem;
+}
+
+.carousel-overlay .container {
+  position: relative;
+  z-index: 3;
+}
+
+.carousel-img {
+  width: 200%;
+}
+
+.container .owl-nav .owl-prev,
+.container .owl-nav .owl-next {
+  margin: 7px 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #ffffff;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+.container .owl-nav .owl-prev:hover,
+.container .owl-nav .owl-next:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.page-header {
+  background: linear-gradient(rgba(24, 29, 56, 0.4), rgba(24, 29, 56, 0.7)),
+    url(../img/Aniket-107.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-header-inner {
+  background: rgba(15, 23, 43, 0.7);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--light);
+}
+
+/*** Section Title ***/
+.section-title {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.section-title::before {
+  position: absolute;
+  content: '';
+  width: calc(100% + 80px);
+  height: 2px;
+  top: 4px;
+  left: -40px;
+  background: var(--primary);
+  z-index: -1;
+}
+
+.section-title::after {
+  position: absolute;
+  content: '';
+  width: calc(100% + 120px);
+  height: 2px;
+  bottom: 5px;
+  left: -60px;
+  background: var(--primary);
+  z-index: -1;
+}
+
+.section-title.text-start::before {
+  width: calc(100% + 40px);
+  left: 0;
+}
+
+.section-title.text-start::after {
+  width: calc(100% + 60px);
+  left: 0;
+}
+
+/*** Service ***/
+.service-item {
+  background: var(--light);
+  transition: 0.5s;
+}
+
+.service-item:hover {
+  margin-top: -10px;
+  background: var(--primary);
+}
+
+.service-item * {
+  transition: 0.5s;
+}
+
+.service-item:hover * {
+  color: var(--light) !important;
+}
+
+/*** Categories & Courses ***/
+.category img,
+.course-item img {
+  transition: 0.5s;
+}
+
+.category a:hover img,
+.course-item:hover img {
+  transform: scale(1.1);
+}
+
+/*** Team ***/
+.team-item img {
+  transition: 0.5s;
+}
+
+.team-item:hover img {
+  transform: scale(1.1);
+}
+
+/*** Testimonial ***/
+.testimonial-carousel::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+}
+
+.testimonial-carousel::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-light .navbar-nav .nav-link {
+    margin-right: 0;
+    padding: 10px 0;
+  }
+
+  .navbar-light .navbar-nav {
+    border-top: 1px solid #eeeeee;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+  }
+
+  .navbar .dropdown-menu.fade-down {
+    top: 100%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+  }
+
+  .navbar .nav-item:hover .dropdown-menu {
+    top: 100%;
+    transform: rotateX(0deg);
+    visibility: visible;
+    transition: 0.5s;
+    opacity: 1;
+  }
+}
+
+/*** Header carousel ***/
+@media (max-width: 768px) {
+  .container .owl-carousel-item {
+    position: relative;
+    min-height: 500px;
+  }
+
+  .container .owl-carousel-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 768px) {
+  .testimonial-carousel::before,
+  .testimonial-carousel::after {
+    width: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .testimonial-carousel::before,
+  .testimonial-carousel::after {
+    width: 300px;
+  }
+}
+
+.testimonial-carousel .owl-item .testimonial-text,
+.testimonial-carousel .owl-item.center .testimonial-text * {
+  transition: 0.5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text {
+  background: var(--primary) !important;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text * {
+  color: #ffffff !important;
+}
+
+.testimonial-carousel .owl-dots {
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #cccccc;
+  transition: 0.5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/*** Footer ***/
+.footer .btn.btn-social {
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  font-weight: normal;
+  border: 1px solid #ffffff;
+  border-radius: 35px;
+  transition: 0.3s;
+}
+
+.footer .btn.btn-social:hover {
+  color: var(--primary);
+}
+
+.footer .btn.btn-link {
+  display: block;
+  margin-bottom: 5px;
+  padding: 0;
+  text-align: left;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.footer .btn.btn-link::before {
+  position: relative;
+  content: '\f105';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+  letter-spacing: 1px;
+  box-shadow: none;
+}
+
+.footer .copyright {
+  padding: 25px 0;
+  font-size: 15px;
+  /* border-top: 1px solid rgba(256, 256, 256, 0.1); */
+}
+
+.footer .copyright a {
+  color: var(--light);
+}
+
+.footer .footer-menu a {
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .footer-menu a:last-child {
+  margin-right: 0;
+  padding-right: 0;
+  border-right: none;
+}
+
+/* Vendor Carousel Responsive Styling */
+.vendor-carousel img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+.vendor-carousel img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .vendor-carousel img {
+    max-height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vendor-carousel img {
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 576px) {
+  .vendor-carousel img {
+    max-height: 60px;
+  }
+}
+
+.container h1 {
+  font-size: clamp(1.4rem, 5vw, 2.4rem); /* smaller, responsive size */
+  line-height: 1.2; /* slightly looser spacing */
+  font-weight: 700; /* bold text */
+  max-width: 600px; /* prevent text overflow */
+  word-break: break-word; /* break long words if needed */
+  display: flex;
+  flex-direction: column; /* stack spans vertically */
+  gap: 0.3rem; /* spacing between lines */
+  text-align: left; /* align left */
+  color: #000; /* make sure text is visible */
+}
+
+.non-container h1 {
+  font-size: clamp(1.4rem, 6vw, 3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  max-width: 100%; /* allow full width for centering */
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: center;
+  color: #000;
+}
+
+.container h5 {
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.container p {
+  font-size: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.container .btn {
+  padding: clamp(0.4rem, 1vw, 0.6rem) clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+/* Non-container wrapper */
+.non-container {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  justify-content: center; /* vertical centering */
+  align-items: center; /* horizontal centering */
+  text-align: center; /* center text */
+  width: 100%;
+}
+
+.top-button {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Fix Book Today button text wrapping */
+.navbar .btn {
+  white-space: normal; /* allow wrapping */
+  text-align: center; /* center the text */
+  line-height: 1; /* tighter line spacing */
+  padding: 1.6rem 1.6rem; /* more balanced padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* stack words vertically */
+}
+
+/* H1 styling */
+.non-container h1 {
+  font-size: clamp(1.6rem, 5vw, 3rem); /* scales with viewport */
+  line-height: 1.2;
+  font-weight: 700;
+  max-width: 90%; /* prevent long lines */
+  word-break: break-word;
+  color: #000;
+}
+
+/* H5 styling */
+.non-container h5 {
+  font-size: clamp(1rem, 3vw, 1.5rem); /* responsive smaller heading */
+  font-weight: 600;
+  color: #000; /* primary color (adjust as needed) */
+  letter-spacing: 0.5px;
+}
+
+/* Responsive tweaks for smaller devices */
+@media (max-width: 768px) {
+  .non-container h1 {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
+  }
+  .non-container h5 {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .non-container h1 {
+    font-size: clamp(1.2rem, 7vw, 1.8rem);
+  }
+  .non-container h5 {
+    font-size: clamp(0.8rem, 5vw, 1rem);
+  }
+}
+
+/* Optional fine-tuning with media queries */
+@media (max-width: 768px) {
+  .container h1 {
+    text-align: left;
+  }
+  .container p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .container h1 {
+    font-size: 1.2rem; /* minimum for small devices */
+  }
+  .container h5 {
+    font-size: 0.7rem;
+  }
+  .container p {
+    font-size: 0.65rem;
+  }
+  .container .btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+/* For tablets */
+@media (max-width: 992px) {
+  .container h1 {
+    font-size: 2.4rem;
+    max-width: 480px;
+  }
+  .hero-text {
+    font-size: 0.8rem;
+    max-width: 440px;
+  }
+}
+
+/* For smaller mobile devices */
+@media (max-width: 768px) {
+  .container h1 {
+    font-size: 1.5rem;
+    max-width: 380px;
+  }
+  .hero-text {
+    font-size: 0.8rem;
+    max-width: 360px;
+  }
+  .top-button {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 576px) {
+  .container h1 {
+    font-size: 1.5rem;
+    max-width: 300px;
+  }
+  .hero-text {
+    display: none;
+    font-size: 0.8rem;
+    max-width: 300px;
+  }
+  .top-button {
+    padding-top: 1.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .container .btn {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+}
+
+/* Responsive paragraph styling for carousel */
+.hero-text {
+  word-wrap: break-word;
+  font-size: clamp(0.5rem, 0.9vw, 1.2rem);
+  line-height: 1.3;
+  max-width: 550px;
+  color: #fff;
+}
+
+.container h5 {
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Small phones (iPhone 12 Pro etc.) */
+@media (max-width: 400px) {
+  .container h1 {
+    font-size: 1.2rem;
+    max-width: 270px;
+    line-height: 1.1;
+  }
+  .hero-text {
+    display: none;
+  }
+  .container .btn {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+  .top-button {
+    margin-top: 2rem;
+  }
+}
+
+/* Make navbar a flex container and align items center */
+.navbar .container {
+  display: flex;
+  align-items: center; /* vertical centering */
+  justify-content: space-between; /* logo left, toggler right */
+}
+
+/* Make sure the logo is responsive */
+.navbar-brand img {
+  max-width: clamp(
+    45px,
+    10vw,
+    120px
+  ); /* scales between 50px and 120px depending on viewport */
+  height: auto;
+}
+
+/* Push hamburger to right */
+.navbar-toggler {
+  margin-left: auto;
+  max-width: clamp(
+    45px,
+    8vw,
+    120px
+  ); /* scales between 50px and 120px depending on viewport */
+}
+
+/* Collapse menu should appear below toggler only on mobile */
+@media (max-width: 991.98px) {
+  .navbar .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Navbar brand text responsive size */
+.navbar-brand {
+  font-size: clamp(
+    0.5rem,
+    2vw,
+    1.5rem
+  ); /* scales from 1rem to 1.5rem depending on viewport width */
+  font-weight: 700; /* bold */
+  white-space: nowrap; /* prevent wrapping */
+}
+
+/* Optional: adjust on very small screens */
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: clamp(0.4rem, 1vw, 1rem);
+  }
+}
+/* Ensure navbar container is flex and items are centered */
+.navbar .container {
+  display: flex;
+  align-items: center; /* vertical centering */
+  justify-content: space-between; /* logo left, toggler right */
+  height: 75px; /* match navbar height */
+}
+
+/* Make hamburger button vertically centered and responsive */
+.navbar-toggler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px; /* adjust as needed */
+  padding: 0.25rem 0.75rem; /* smaller padding for small screens */
+}
+
+/* Optional: adjust for very small screens */
+@media (max-width: 576px) {
+  .navbar-toggler {
+    height: 35px;
+    padding: 0.2rem 0.5rem;
+  }
+}
