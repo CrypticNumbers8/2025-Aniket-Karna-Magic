@@ -102,16 +102,31 @@
   
 
 <!-- Video Intro Start -->
-<section id="video-intro" class="video-hero w-100">
+<!-- <section id="video-intro" class="video-hero w-100">
   <div class="video-container">
     <video id="hero-video" autoplay loop playsinline poster="img/Aniket-42.jpg">
       <source src="img/aniket-intro-720.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
-</section>
+</section> -->
 
 <!-- Video Intro End -->
+
+
+<section id="video-intro" class="video-hero w-100">
+  <div id="yt-player" class="video-container" style="position: relative; height: 0; overflow: hidden;">
+    <iframe
+      src="https://www.youtube.com/embed/GS1LIkxjPUs?autoplay=1&mute=0&loop=1&playlist=GS1LIkxjPUs&controls=0&rel=0&playsinline=1"
+      title="Aniket Intro Video"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    ></iframe>
+  </div>
+</section>
+
 
 </div>
 </div>
@@ -604,7 +619,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
+<script src="https://www.youtube.com/iframe_api"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

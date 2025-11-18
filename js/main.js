@@ -215,6 +215,64 @@
     }
   });
 
+  let player;
+
+  // Create the YouTube player
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+      videoId: 'GS1LIkxjPUs', // your video ID
+      playerVars: {
+        autoplay: 1,
+        controls: 0,
+        mute: 1,
+        loop: 1,
+        playlist: 'GS1LIkxjPUs',
+        modestbranding: 1,
+        playsinline: 1,
+        rel: 0,
+      },
+      events: {
+        onReady: function (e) {
+          e.target.playVideo();
+          observeVisibility(e.target);
+        },
+      },
+    });
+  }
+
+  function observeVisibility(player) {
+    const iframe = player.getIframe();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Only play if visible and tab is active
+          if (entry.isIntersecting && !document.hidden) {
+            player.playVideo();
+          } else {
+            player.pauseVideo();
+          }
+        });
+      },
+      { threshold: 0 } // 0 = any part visible triggers
+    );
+
+    observer.observe(iframe);
+  }
+
+  // Pause/resume on tab visibility
+  document.addEventListener('visibilitychange', () => {
+    if (!player) return;
+    const iframeRect = player.getIframe().getBoundingClientRect();
+    const inView = iframeRect.top < window.innerHeight && iframeRect.bottom > 0;
+
+    if (document.hidden || !inView) {
+      player.pauseVideo();
+    } else {
+      player.playVideo();
+    }
+  });
+
   // Initialize EmailJS
   (function () {
     emailjs.init({
