@@ -146,6 +146,18 @@
   transition: 0.5s;
 }
 
+#video-sound-toggle {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#video-sound-toggle:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
 .video-hero {
   width: 100%;
   position: relative;

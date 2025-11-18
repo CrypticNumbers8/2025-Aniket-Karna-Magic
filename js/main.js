@@ -170,6 +170,51 @@
     observer.observe(video);
   });
 
+  const video = document.getElementById('hero-video'); // if you give this video an ID
+  // Ensure continuous looping (restart immediately after ending)
+  video.addEventListener('ended', () => {
+    video.currentTime = 0;
+    video.play();
+  });
+
+  // Autoplay when the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    video.play().catch(() => {
+      // Handle autoplay restrictions on some browsers
+    });
+  });
+
+  // Pause videos when switching tabs; resume only if in view
+  document.addEventListener('visibilitychange', () => {
+    const allVideos = document.querySelectorAll('video');
+
+    if (document.hidden) {
+      allVideos.forEach((v) => v.pause());
+    } else {
+      allVideos.forEach((v) => {
+        const rect = v.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          v.currentTime = v.currentTime;
+          v.play().catch(() => {});
+        }
+      });
+    }
+  });
+
+  // Ensure OwlCarousels pause on tab switch and resume correctly
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') {
+      $('.header-carousel').trigger('play.owl.autoplay', [3000]);
+      $('.testimonial-carousel').trigger('play.owl.autoplay', [4000]);
+      $('.vendor-carousel').trigger('play.owl.autoplay', [3000]);
+    } else {
+      $('.header-carousel').trigger('stop.owl.autoplay');
+      $('.testimonial-carousel').trigger('stop.owl.autoplay');
+      $('.vendor-carousel').trigger('stop.owl.autoplay');
+    }
+  });
+
   // Initialize EmailJS
   (function () {
     emailjs.init({
