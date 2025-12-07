@@ -237,6 +237,20 @@
   background: rgba(15, 23, 43, 0.7);
 }
 
+.testimonial-static img {
+  border-radius: 0 !important; /* removes any circle */
+  border: none !important; /* removes border */
+}
+
+.testimonial-text {
+  border-radius: 0; /* square corners */
+}
+
+.stars {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
   color: var(--light);
 }
