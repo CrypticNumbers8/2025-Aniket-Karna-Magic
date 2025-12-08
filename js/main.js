@@ -76,58 +76,58 @@
   });
 
   // Testimonials carousel
-  $('.testimonial-carousel').owlCarousel({
-    autoplay: true,
-    smartSpeed: 1500,
-    autoplayTimeout: 4000, // 3 seconds per slide
+  // $('.testimonial-carousel').owlCarousel({
+  //   autoplay: true,
+  //   smartSpeed: 1500,
+  //   autoplayTimeout: 4000, // 3 seconds per slide
 
-    center: true,
-    margin: 24,
-    dots: true,
-    loop: true,
-    nav: false,
-    autoplayHoverPause: false, // prevents pause on hover
+  //   center: true,
+  //   margin: 24,
+  //   dots: true,
+  //   loop: true,
+  //   nav: false,
+  //   autoplayHoverPause: false, // prevents pause on hover
 
-    responsive: {
-      0: {
-        items: 1,
-      },
-      768: {
-        items: 2,
-      },
-      992: {
-        items: 3,
-      },
-    },
-  });
+  //   responsive: {
+  //     0: {
+  //       items: 1,
+  //     },
+  //     768: {
+  //       items: 2,
+  //     },
+  //     992: {
+  //       items: 3,
+  //     },
+  //   },
+  // });
 
   // Single button to toggle mute/unmute for all videos
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggleBtn = document.getElementById('sound-toggle');
-    if (!toggleBtn) return;
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   const toggleBtn = document.getElementById('sound-toggle');
+  //   if (!toggleBtn) return;
 
-    const heroVid = document.getElementById('hero-video');
+  //   const heroVid = document.getElementById('hero-video');
 
-    toggleBtn.addEventListener('click', () => {
-      // Toggle HTML5 video sound
-      if (heroVid) {
-        heroVid.muted = !heroVid.muted;
-      }
+  //   toggleBtn.addEventListener('click', () => {
+  //     // Toggle HTML5 video sound
+  //     if (heroVid) {
+  //       heroVid.muted = !heroVid.muted;
+  //     }
 
-      // Toggle YouTube player sound if available
-      if (typeof player !== 'undefined' && player && player.isMuted) {
-        if (player.isMuted()) {
-          player.unMute();
-        } else {
-          player.mute();
-        }
-      }
+  //     // Toggle YouTube player sound if available
+  //     if (typeof player !== 'undefined' && player && player.isMuted) {
+  //       if (player.isMuted()) {
+  //         player.unMute();
+  //       } else {
+  //         player.mute();
+  //       }
+  //     }
 
-      // Change button text
-      toggleBtn.textContent =
-        heroVid && !heroVid.muted ? 'Mute Sound' : 'Play Sound';
-    });
-  });
+  //     // Change button text
+  //     toggleBtn.textContent =
+  //       heroVid && !heroVid.muted ? 'Mute Sound' : 'Play Sound';
+  //   });
+  // });
 
   // Vendor carousel
   $('.vendor-carousel').owlCarousel({
@@ -169,65 +169,40 @@
     }
   });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const video = document.querySelector('#video-intro video');
-    if (!video) return;
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   const video = document.querySelector('#video-intro video');
+  //   if (!video) return;
 
-    // Set initial volume to 40%
-    video.volume = 0.1;
+  //   // Set initial volume to 40%
+  //   video.volume = 0.1;
 
-    // Try to autoplay
-    video.play().catch(() => {
-      // Browser may block autoplay with sound
-    });
+  //   // Try to autoplay
+  //   video.play().catch(() => {
+  //     // Browser may block autoplay with sound
+  //   });
 
-    // Pause/resume video based on visibility
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.play();
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+  //   // Pause/resume video based on visibility
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           video.play();
+  //         } else {
+  //           video.pause();
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
 
-    observer.observe(video);
-  });
-
-  // const video = document.getElementById('hero-video'); // if you give this video an ID
-  // // Ensure continuous looping (restart immediately after ending)
-  // video.addEventListener('ended', () => {
-  //   video.currentTime = 0;
-  //   video.play();
+  //   observer.observe(video);
   // });
 
   // Autoplay when the page loads
-  document.addEventListener('DOMContentLoaded', () => {
-    video.play().catch(() => {
-      // Handle autoplay restrictions on some browsers
-    });
-  });
-
-  // // Pause videos when switching tabs; resume only if in view
-  // document.addEventListener('visibilitychange', () => {
-  //   const allVideos = document.querySelectorAll('video');
-
-  //   if (document.hidden) {
-  //     allVideos.forEach((v) => v.pause());
-  //   } else {
-  //     allVideos.forEach((v) => {
-  //       const rect = v.getBoundingClientRect();
-  //       const inView = rect.top < window.innerHeight && rect.bottom > 0;
-  //       if (inView) {
-  //         v.currentTime = v.currentTime;
-  //         v.play().catch(() => {});
-  //       }
-  //     });
-  //   }
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   video.play().catch(() => {
+  //     // Handle autoplay restrictions on some browsers
+  //   });
   // });
 
   // Ensure OwlCarousels pause on tab switch and resume correctly
@@ -287,31 +262,6 @@
 
     observer.observe(iframe);
   }
-
-  // ✅ Resume all videos when returning to tab (only if visible)
-  // document.addEventListener('visibilitychange', () => {
-  //   const allVideos = document.querySelectorAll('video');
-
-  //   if (document.visibilityState === 'visible') {
-  //     allVideos.forEach((video) => {
-  //       const rect = video.getBoundingClientRect();
-  //       const isVisible =
-  //         rect.bottom > 0 &&
-  //         rect.top < window.innerHeight &&
-  //         rect.right > 0 &&
-  //         rect.left < window.innerWidth;
-
-  //       if (isVisible) {
-  //         video.play().catch(() => {
-  //           // autoplay may still be blocked on some browsers
-  //         });
-  //       }
-  //     });
-  //   } else {
-  //     // Pause ALL videos when tab is hidden
-  //     allVideos.forEach((video) => video.pause());
-  //   }
-  // });
 
   // ✅ SINGLE SOURCE OF TRUTH FOR VIDEO AUTOPLAY
   (function () {
